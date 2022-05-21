@@ -13,7 +13,7 @@ func Listen() {
 	router := gin.Default()
 
 	router.GET("/", Default)
-	router.Static("/static", "./internal/webApp")
+	router.StaticFS("/static", gin.Dir("./internal/webApp", false))
 
 	srv := &http.Server{
 		Addr:    os.Getenv("SERVER_ADDRESS"),

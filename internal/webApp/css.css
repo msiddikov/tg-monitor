@@ -163,33 +163,7 @@ html, body {
     input[type=radio]:checked + label:after, input[type=checkbox]:checked + label:after {
     opacity: 1;
     }
-    .btn-block {
-    margin-top: 10px;
-    text-align: center;
-    }
-    button {
-    width: 150px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px; 
-    background: #095484;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
-    }
-    button:hover {
-    background: #0666a3;
-    }
-    @media (min-width: 568px) {
-    .city-item {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    }
-    .city-item input {
-    width: calc(50% - 20px);
-    }
-    .city-item select {
-    width: calc(50% - 8px);
-    }
+
+    #bodyDiv {
+        display: none;
     }

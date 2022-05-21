@@ -4,38 +4,37 @@
 <head>
     <title>Research Application Form</title>
     <link rel="stylesheet" href="css.css">
+    <script src="jquery.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="script.js"></script>
 </head>
 
 <body>
     <div class="testbox">
-        <form action="/">
+        <form>
             <div class="item">
                 <p>Name<span class="required">*</span></p>
-                <input type="text" name="name" />
+                <input type="text" id="name" />
             </div>
             <div class="item">
                 <p>URL<span class="required">*</span></p>
-                <input type="text" name="url" />
+                <input type="text" id="url" />
             </div>
             <div class="item">
                 <p>Method<span class="required">*</span></p>
-                <select required>
-                    <option value="">GET</option>
-                    <option value="1">POST</option>
+                <select required id="method" onchange="toggleBody()">
+                    <option value="">Select method</option>
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
                 </select>
-                <div class="item">
-                    <p>Body<span class="required">*</span></p>
-                    <textarea id="body1" rows="3" required ></textarea>
-                </div>
-                <div class="item">
-                    <p>Interval<span class="required">*</span></p>
-                    <input type="text" name="name" required />
-                </div>
             </div>
-            <div class="btn-block">
-                <button type="submit" href="/">Send Application</button>
+            <div class="item" id="bodyDiv">
+                <p>Body<span class="required">*</span></p>
+                <textarea id="body" rows="3" required ></textarea>
+            </div>
+            <div class="item">
+                <p>Interval<span class="required">*</span></p>
+                <input type="text" id="interval" required />
             </div>
         </form>
     </div>
