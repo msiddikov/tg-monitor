@@ -25,13 +25,32 @@ updateButton();
 function updateButton() {
   Telegram.WebApp.MainButton.setParams({
     is_visible: true,
-    text: 'VIEW ORDER1',
+    text: 'ADD MONITOR',
     color: '#31b545'
-  }).hideProgress();
+  }).onClick(SendData);
 }
 function toggleBody(){
   document.getElementById("bodyDiv").style = document.getElementById("method").value=='POST'?"display: block":""
 }
-// $("#method").on("change",()=>{
-//   $("#bodyDiv").is_visible = $("#method").val == "POST"
-// })
+
+function SendData(){
+
+    data = {
+    name: document.getElementById("name").value,
+    url: document.getElementById("url").value,
+    method: document.getElementById("method").value,
+    body: document.getElementById("body").value,
+    interval: document.getElementById("interval").value,
+  }
+
+  fetch('https://tools.lavina.uz:8085/addmonitor', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+}).then(()=>{
+  Telegram.WebApp.close() 
+})
+}
+

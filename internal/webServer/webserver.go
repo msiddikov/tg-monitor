@@ -13,6 +13,7 @@ func Listen() {
 	router := gin.Default()
 
 	router.GET("/", Default)
+	router.POST("/addmonitor", AddMonitor)
 	router.StaticFS("/static", gin.Dir("./internal/webApp", false))
 
 	srv := &http.Server{
@@ -35,5 +36,8 @@ func Listen() {
 }
 
 func Default(c *gin.Context) {
+	c.Writer.WriteHeader(204)
+}
+func AddMonitor(c *gin.Context) {
 	c.Writer.WriteHeader(204)
 }
